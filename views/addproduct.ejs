@@ -1,0 +1,29 @@
+    <% include ../partials/header %>
+<div class="row">
+  <h1>Welcome to the Add Products Page</h1>  <br>
+  <div class="grid-container">
+                    <form accept-charset="UTF-8" action="/addproduct" method="post">    
+                <div class="item">
+                  <label for="name">Name</label>
+                    <input name="name" type="text" placeholder="Enter Name", pattern='[A-Za-z]{1,32}' title="please only enter letters" />
+                                    
+                  <label for="price">Price</label>
+                    <input name="price" type="text" placeholder="Enter Price", pattern='[-+]?[0-9]*[.,]?[0-9]+' title="number only" />
+                                       
+                   <label for="image">Image URL</label> 
+                    <input name="image" type="text" placeholder="Enter Image URL", pattern='[a-z0-9]+\.[a-z]{3,}$', title='Correct Image Format', required />
+                    
+                    <label for="description">Description</label> 
+                    <input name="description" type="text" placeholder="Enter Description" />
+                    
+                    <button class="button">Add Product</button>
+                    </div>
+              </form>
+      
+         
+    </div>
+  
+</div>
+
+
+<% include ../partials/footer %>
