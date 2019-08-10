@@ -1,20 +1,20 @@
-    <% include ../partials/header %>
+    <% include ../partials/header %> 
 <div class="row">
   <h1>Welcome to the Add Products Page</h1>  <br>
   <div class="grid-container">
                     <form accept-charset="UTF-8" action="/addproduct" method="post">    
                 <div class="item">
                   <label for="name">Name</label>
-                    <input name="name" type="text" placeholder="Enter Name", pattern='[A-Za-z]{1,32}' title="please only enter letters" />
+                    <input name="name" type="text" placeholder="Enter Name", pattern='[A-Za-z]{1,32}' title="please only enter letters" />     //Ref: https://stackoverflow.com/questions/25184310/first-name-validation-using-html-5-pattern//
                                     
                   <label for="price">Price</label>
-                    <input name="price" type="text" placeholder="Enter Price", pattern='[-+]?[0-9]*[.,]?[0-9]+' title="number only" />
+                    <input name="price" type="text" placeholder="Enter Price", pattern='[-+]?[0-9]*[.,]?[0-9]+' title="number only" />  // Ref:https://css-tricks.com/form-validation-part-1-constraint-validation-html//
                                        
                    <label for="image">Image URL</label> 
                     <input name="image" type="text" placeholder="Enter Image URL", pattern='[a-z0-9]+\.[a-z]{3,}$', title='Correct Image Format', required />
                     
                     <label for="description">Description</label> 
-                    <input name="description" type="text" placeholder="Enter Description", pattern='[A-Za-z]{1,32}' title="please only enter letters" />
+                    <input name="description" type="text" placeholder="Enter Description", pattern='[A-Za-z]{1,32}' title="please only enter letters" />  
                     
                     <button class="button">Add Product</button>
                     </div>

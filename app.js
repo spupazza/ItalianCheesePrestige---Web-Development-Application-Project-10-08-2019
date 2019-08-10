@@ -1,3 +1,5 @@
+////reference: Liam McCabe Sport's Application
+
 var express = require("express"); // call the express module which is default provded by Node
 
 var app = express(); // now we need to declare our app which is the envoked express application
