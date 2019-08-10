@@ -1,11 +1,5 @@
 [
     {
-        "name": "John",
-        "Comment": "I like your grana cheese",
-        "id": 1,
-        "email": "john@gmail.com"
-    },
-    {
         "name": "Santa",
         "Comment": "Your mozzarella cheese is fantastic",
         "id": 2,
@@ -32,7 +26,13 @@
     {
         "id": 7,
         "name": "maria",
-        "Comment": "ciao",
+        "Comment": "I love this shop!",
+        "email": "spupazza@hotmail.com"
+    },
+    {
+        "id": 8,
+        "name": "maria",
+        "Comment": "I love this shop!",
         "email": "spupazza@hotmail.com"
     }
 ]

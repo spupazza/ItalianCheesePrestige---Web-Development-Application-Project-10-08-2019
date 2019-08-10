@@ -1,0 +1,46 @@
+<% include ../partials/header %>
+
+<div class="row">
+        
+         
+          <h1>Welcome to the Feedback Page</h1>
+            <br>
+            
+        
+          <div class="grid-container">
+        <% rex.forEach(function(feedback) { %>
+                       
+                      
+                        <div class="item">     
+                        <h1 class="itemtitle">Id: <%= feedback.Id %> </h1>
+                        <h1 class="itemp">Name: <%= feedback.Name %></h1>
+                        <p class="itemp">Comment: <%= feedback.Comment %></p>
+                        
+                         <p class="button" id="annull<%= feedback.Id %>">Delete</a>
+                        <p id="si<%= feedback.Id %>" style="display:none">
+                         Are you sure?
+                        <a href="/deletefeedback/<%= feedback.Id %>" class="button">Yes</a>
+             </p>
+             
+             <script>
+               $(document).ready(function(){
+                 $("#annull<%= feedback.Id %>").click(function(){
+                   $("#si<%= feedback.Id %>").slideToggle(2000);
+                   
+                 })
+                 
+               })
+               
+             </script>
+             
+                        </div>
+           
+    
+  
+  <% }); %>
+        
+        </div>
+ <a href="/addfeedback" class="button">Add New Feedback</a>
+    </div>
+
+<% include ../partials/footer %>

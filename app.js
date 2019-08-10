@@ -342,18 +342,88 @@ app.get('/product/:id', function(req,res){
 
 // this route will create a database table
 
-app.get('/createtable', function(req,res){
-     // Create a table that will show product Id, name, price, image and description
-   let sql = 'CREATE TABLE feedback (Id int NOT NULL AUTO_INCREMENT PRIMARY KEY, Name varchar(255), Description varchar(255))';
+//app.get('/createtable', function(req,res){
+     // Create a table that will show feedback Id, name, comment 
+  // let sql = 'CREATE TABLE feedback (Id int NOT NULL AUTO_INCREMENT PRIMARY KEY, Name varchar(255), Comment varchar(255))';
     
-    let query = db.query(sql, (err,res) => {
-                if(err) throw err;
-             console.log(res);
-        });
-    res.send("You created your first DB Table")
-    })
+    //let query = db.query(sql, (err,res) => {
+      //     if(err) throw err;
+        //    console.log(res);
+        //});
+    //res.send("You created your first DB Table")
+    //})
     
-    // This route will create a product 
+    // This route will create a feedback
+      
+//app.get('/insert', function(req,res){
+    // Create a table that will show feedback Id, name, comment 
+  // let sql = 'INSERT INTO feedback (Name, Comment) VALUES ("Maria", "Very good store") ';
+    
+   //let query = db.query(sql, (err,res) => {
+        
+     //   if(err) throw err;
+        
+       // console.log(res);
+        
+ //});
+    
+   //  res.send("You created your first Feedback")
+    
+ //})
+ 
+ //Get Feedback Page
+ 
+app.get('/feedback',  function(req, res){  // I have this restricted for admin just for proof of concept
+ let sql = 'SELECT * FROM feedback';
+  let query = db.query(sql, (err, rex) => {
+    if(err) throw err;
+    console.log(rex);
+
+    res.render('feedback', {rex});
+  });
+ 
+  console.log("Now you are on the feedback page!");
+});
+
+ // URL to get the add feedback page
+app.get('/addfeedback', function(req,res){
+        res.render('addfeedback')
+        
+})
+
+//post request to write info to the database
+ 
+app.post('/addfeedback', function(req, res){
+  let sql = 'INSERT INTO feedback (Name, Comment) VALUES ("'+req.body.name+'", "'+req.body.comment+'")';
+ //let sql = 'INSERT INTO feedback (Name, Comment) VALUES ("Maria", "Very good store") ';
+
+  let query = db.query(sql, (err, res) => {
+    if(err) throw err;
+    console.log(res);
+    
+    
+  })
+  res.redirect('/feedback');
+  });
+  
+  // URL TO delete a feedback
+
+app.get('/deletefeedback/:id', function(req,res){
+    
+        let sql = 'DELETE FROM feedback WHERE Id =  "'+req.params.id+'" ';
+    
+    let query = db.query(sql, (err,result) => {
+        
+        if(err) throw err;
+        
+        console.log(result);
+  
+    });
+    
+    res.redirect('/feedback')
+    
+    
+})
 
 // ******************************** End of SQL **************************************** //
 
